@@ -1,3 +1,0 @@
-[submodule "files/json"]
-	path = files/json
-	url = git@github.com:pub-monkey/pub.files.json.git

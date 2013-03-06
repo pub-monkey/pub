@@ -1,0 +1,35 @@
+Emitter1{
+image:images/particle.png;
+type:radial;
+maxRadius:200;
+minRadius:30;
+maxRadiusVariance:35;
+rotatePerSecond:-20;
+life:3;
+lifeVariance:0.0;
+duration:-1;
+emissionRate:30;
+positionVarianceX:200;
+emitDelay:0.00;
+sizeX:0.30;
+sizeY:0.30;
+sizeVarianceX:0.0;
+sizeVarianceY:0.00;
+endSizeX:0.23;
+endSizeY:0.23;
+endSizeVarianceX:0.00;
+endSizeVarianceY:0.0;
+angle:120;
+angleVariance:180;
+gravityX:0.00;
+gravityY:0.00;
+color:255 78 24 1.00 0 0 0 0.00;
+endColor:255 101 58 0.00 0 0 0 0.00;
+additiveBlend:1;
+}
+
+Emitter2{
+image:images/particle3.png;
+type:gravity;
+gravityY:3.00;
+}

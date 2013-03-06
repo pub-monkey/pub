@@ -2,3 +2,5 @@
 *.build
 *.jiproj*
 *.jungle*
+.DS_Store
+

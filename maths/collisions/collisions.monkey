@@ -1,5 +1,7 @@
 Strict
 
+'version 3
+' - moved some bits to private!
 'version 2
 ' - imported many more functions from an old project
 ' - tweaked naming convention to use camel case instead of underscores!
@@ -8,12 +10,12 @@ Strict
 
 Import monkey.math
 
+'internal
 Private
 Global tempPoint1:Float[2]
 Global tempPoint2:Float[2]
 Public
 
-'helpers
 Function GetQuad:Int(axisX:Float, axisY:Float, vertX:Float, vertY:Float)
 	If vertX<axisX
 		If vertY<axisY
@@ -30,7 +32,9 @@ Function GetQuad:Int(axisX:Float, axisY:Float, vertX:Float, vertY:Float)
 	EndIf
 
 End Function
+Public
 
+'helpers
 Function TransformPoly:Float[] (xy:Float[], transformedX:Float = 0, transformedY:Float = 0, rot:Float = 0, scaleX:Float = 1, scaleY:Float = 1, handleX:Float = 0, handleY:Float = 0, originX:Float = 0, originY:Float = 0)
 	
 	If xy.Length<6 Or (xy.Length&1) Return []

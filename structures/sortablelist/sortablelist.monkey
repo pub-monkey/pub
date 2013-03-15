@@ -2,9 +2,10 @@ Strict
 
 'this is a monkey list but allows you to use custom sort callbacks to order the items in your list.
 'a good example of usage would be to sort your game sprites by zorder.
-'monkey by default requires that you create a custom list class per sorting method. So you could only ever have one speciffic sort routine per list.
-'this module adds a new method SortBy to the list and that lets you pass in an instance of SortableCallback. Extend SortableCallback to 
-'add custom sort routines.
+'monkey by default requires that you create a custom list class per sorting method. So you could
+'only ever have one speciffic sort routine per list. This module adds a new method SortBy to the 
+'list and that lets you pass in an instance of SortableListCallback.
+'You should Extend SortableListCallback to add custom sort routines.
 
 'version 1
 '- created basic sortable list

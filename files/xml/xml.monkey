@@ -27,6 +27,8 @@
 'Each node will have its document line,column and offset values added to it for each debugging. Error messages will also report correct document details.
 'The lib was written from scratch with no reference.
 
+'version 11
+' - added support for '-' character in tags and attributes (thanks midimaster)
 'version 10
 ' - renamed the attribute query and stringbuffer classes
 'version 9
@@ -304,7 +306,7 @@ Class XMLAttributeQuery
 						
 					Default
 						'skip character if we are building id and there is not valid alphanumeric
-						If hasId or (queryAsc = 95 or (queryAsc >= 48 and queryAsc <= 57) or (queryAsc >= 65 and queryAsc <= 90) or (queryAsc >= 97 and queryAsc <= 122)) buffer.Add(queryAsc)
+						If hasId or (queryAsc = 45 or queryAsc = 95 or (queryAsc >= 48 and queryAsc <= 57) or (queryAsc >= 65 and queryAsc <= 90) or (queryAsc >= 97 and queryAsc <= 122)) buffer.Add(queryAsc)
 				End
 			EndIf
 			
@@ -1731,7 +1733,7 @@ Function ParseXML:XMLDoc(raw:String, error:XMLError = Null, options:Int = XML_ST
 							
 						Default
 							'no speciffic so check generic
-							If rawAsc = 95 or (rawAsc >= 48 and rawAsc <= 57) or (rawAsc >= 65 and rawAsc <= 90) or (rawAsc >= 97 and rawAsc <= 122)
+							If rawAsc = 45 or rawAsc = 95 or (rawAsc >= 48 and rawAsc <= 57) or (rawAsc >= 65 and rawAsc <= 90) or (rawAsc >= 97 and rawAsc <= 122)
 								If hasTagClose = True And hasTagName = True
 									'error
 									If error error.Set("unexpected character", rawLine, rawColumn, rawIndex)

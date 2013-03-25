@@ -99,6 +99,12 @@ Function DistanceBetweenPoints:Float(x1:Float, y1:Float, x2:Float, y2:Float)
 	Return Sqrt(dx*dx + dy*dy)
 End Function
 
+Function DistanceSquaredBetweenPoints:Float(x1:Float, y1:Float, x2:Float, y2:Float)
+	Local dx:Float = x1-x2
+	Local dy:Float = y1-y2
+	Return dx*dx + dy*dy
+End Function
+
 Function PointInTransformPoly:Bool(pointX:Float, pointY:Float, xy:Float[], polyX:Float = 0, polyY:Float = 0, rot:Float = 0, scaleX:Float = 1, scaleY:Float = 1, handleX:Float = 0, handleY:Float = 0, originX:Float = 0, originY:Float = 0)
 	
 	If xy.Length<6 Or (xy.Length&1) Return False
@@ -148,7 +154,7 @@ End Function
 
 Function PointInCircle:Bool(pointX:Float, pointY:Float, circleX:Float, circleY:Float, radius:Float)
 	' --- return if the point is in teh circle ---
-	Return DistanceBetweenPoints(pointX,pointY,circleX,circleY) <= radius
+	Return DistanceSquaredBetweenPoints(pointX,pointY,circleX,circleY) <= radius*radius
 End Function
 
 Function PointInRect:Bool(pointX:Float, pointY:Float, rectX:Float, rectY:Float, rectWidth:Float, rectHeight:Float)
@@ -239,15 +245,7 @@ Function LineToCircle:Bool(x1:Float, y1:Float, x2:Float, y2:Float, px:Float, py:
 	Local cy:Float=(1-q)*y1 + q*y2
 	
 	
-	If DistanceBetweenPoints(px,py,cx,cy) < r
-		
-		Return True
-		
-	Else
-		
-		Return False
-		
-	EndIf
+	Return DistanceSquaredBetweenPoints(px,py,cx,cy) < r*r
 End Function
 
 Function GetLineIntersectLine:Void(line1x1:Float, line1y1:Float, line1x2:Float, line1y2:Float, line2x1:Float, line2y1:Float, line2x2:Float, line2y2:Float, result:Float[])
